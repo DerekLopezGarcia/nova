@@ -15,21 +15,21 @@ export function NovaHeader({ starCount, alignmentsCompleted, onCreateStar }: Nov
         </span>
         <div>
           <h1 className="nova-header__title">Nova</h1>
-          <div className="nova-header__subtitle">Star Atlas</div>
+          <div className="nova-header__subtitle">Atlas Estelar</div>
         </div>
       </div>
 
       <div className="nova-header__stats">
         <div className="nova-header__stat">
           <span>✦</span>
-          <span><span className="nova-header__stat-value">{starCount}</span> stars</span>
+          <span><span className="nova-header__stat-value">{starCount}</span> estrellas</span>
         </div>
         <div className="nova-header__stat">
           <span>⟡</span>
-          <span><span className="nova-header__stat-value">{alignmentsCompleted}</span> alignments</span>
+          <span><span className="nova-header__stat-value">{alignmentsCompleted}</span> alineaciones</span>
         </div>
         <CosmicButton variant="gold" onClick={onCreateStar}>
-          ✦ Discover Star
+          ✦ Descubrir estrella
         </CosmicButton>
       </div>
     </header>

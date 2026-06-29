@@ -7,13 +7,13 @@ interface CreateStarDialogProps {
 }
 
 const SPECTRAL_CLASSES = [
-  { value: 'O', label: 'O — Blue Giant (massive, hot)' },
-  { value: 'B', label: 'B — Blue-White' },
-  { value: 'A', label: 'A — White (brightest)' },
-  { value: 'F', label: 'F — Yellow-White' },
-  { value: 'G', label: 'G — Yellow Dwarf (like our Sun)' },
-  { value: 'K', label: 'K — Orange Dwarf' },
-  { value: 'M', label: 'M — Red Dwarf (small, cool)' },
+  { value: 'O', label: 'O — Gigante Azul (masiva, caliente)' },
+  { value: 'B', label: 'B — Azul-Blanca' },
+  { value: 'A', label: 'A — Blanca (la más brillante)' },
+  { value: 'F', label: 'F — Amarilla-Blanca' },
+  { value: 'G', label: 'G — Enana Amarilla (como el Sol)' },
+  { value: 'K', label: 'K — Enana Naranja' },
+  { value: 'M', label: 'M — Enana Roja (pequeña, fría)' },
 ];
 
 export function CreateStarDialog({ onClose, onCreate }: CreateStarDialogProps) {
@@ -46,23 +46,23 @@ export function CreateStarDialog({ onClose, onCreate }: CreateStarDialogProps) {
         className="cosmic-dialog"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="cosmic-dialog__title">✦ Discover a New Star</h2>
+        <h2 className="cosmic-dialog__title">✦ Descubrir una estrella nueva</h2>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-md">
-            <label className="cosmic-label">Star Name</label>
+            <label className="cosmic-label">Nombre de la estrella</label>
             <input
               className="cosmic-input"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. Nova Prime"
+              placeholder="Ej: Nova Prime"
               autoFocus
               required
             />
           </div>
 
           <div className="mb-md">
-            <label className="cosmic-label">Spectral Class</label>
+            <label className="cosmic-label">Clase espectral</label>
             <select
               className="cosmic-input"
               value={spectralClass}
@@ -76,22 +76,22 @@ export function CreateStarDialog({ onClose, onCreate }: CreateStarDialogProps) {
           </div>
 
           <div className="mb-md">
-            <label className="cosmic-label">Description (optional)</label>
+            <label className="cosmic-label">Descripción (opcional)</label>
             <textarea
               className="cosmic-input"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Describe this star's purpose..."
+              placeholder="Describe el propósito de esta estrella..."
               rows={3}
             />
           </div>
 
           <div className="cosmic-dialog__actions">
             <CosmicButton variant="default" onClick={onClose}>
-              Cancel
+              Cancelar
             </CosmicButton>
             <CosmicButton variant="gold" type="submit">
-              ✦ Discover!
+              ✦ ¡Descubrir!
             </CosmicButton>
           </div>
         </form>

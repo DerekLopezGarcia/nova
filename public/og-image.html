@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova ✦ Social Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 630px;
+    background: radial-gradient(ellipse at center, #0a0e27 0%, #05081a 100%);
+    font-family: 'Space Mono', monospace;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Stars background */
+  .stars {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 30% 50%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 15%, rgba(255,255,255,0.9) 0%, transparent 100%),
+      radial-gradient(2px 2px at 70% 35%, rgba(200,160,106,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 20% 80%, rgba(135,206,235,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 85%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 25%, rgba(200,160,106,0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 5% 55%, rgba(135,206,235,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 10%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 35%, rgba(200,160,106,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 80%, rgba(135,206,235,0.3) 0%, transparent 100%);
+    background-size: 200px 200px;
+  }
+
+  /* Constellation lines */
+  .constellation {
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    width: 400px;
+    height: 300px;
+  }
+  .constellation svg { width: 100%; height: 100%; }
+  .constellation line {
+    stroke: rgba(200, 160, 106, 0.2);
+    stroke-width: 1;
+    stroke-dasharray: 4 4;
+  }
+  .constellation circle {
+    fill: #c8a06a;
+    filter: drop-shadow(0 0 6px rgba(200,160,106,0.5));
+  }
+
+  /* Star cards grid */
+  .stars-grid {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+  }
+
+  .star-card {
+    width: 180px;
+    background: rgba(10, 14, 39, 0.85);
+    border: 1px solid rgba(200, 160, 106, 0.3);
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(4px);
+  }
+
+  .star-icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .star-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: #c8a06a;
+    margin-bottom: 4px;
+  }
+
+  .star-class {
+    font-size: 10px;
+    color: #6a6a9a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .bar {
+    height: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 6px;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+  }
+
+  .bar-fill.blue { background: linear-gradient(90deg, #4a7bb5, #87ceeb); width: 85%; }
+  .bar-fill.gold { background: linear-gradient(90deg, #c8a06a, #e8c878); width: 65%; }
+  .bar-fill.purple { background: linear-gradient(90deg, #7b5ea7, #c76b9a); width: 55%; }
+  .bar-fill.white { background: linear-gradient(90deg, #87ceeb, #ffffff); width: 90%; }
+
+  .bar-label {
+    font-size: 7px;
+    color: #6a6a9a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 4px;
+    text-align: left;
+  }
+
+  /* Brand */
+  .brand {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .brand-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 20px rgba(200,160,106,0.4));
+  }
+
+  .brand-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 32px;
+    color: #c8a06a;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+  }
+
+  .brand-tagline {
+    font-size: 13px;
+    color: #6a6a9a;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .brand-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 20px;
+    letter-spacing: 2px;
+  }
+
+  /* Gold accent line */
+  .accent-line {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c8a06a, transparent);
+  }
+</style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <!-- Constellation -->
+  <svg class="constellation" viewBox="0 0 400 300">
+    <line x1="50" y1="200" x2="150" y2="80" />
+    <line x1="150" y1="80" x2="280" y2="120" />
+    <line x1="280" y1="120" x2="200" y2="250" />
+    <line x1="200" y1="250" x2="50" y2="200" />
+    <line x1="150" y1="80" x2="200" y2="250" />
+    <circle cx="50" cy="200" r="3" fill="#c8a06a" />
+    <circle cx="150" cy="80" r="4" fill="#87ceeb" />
+    <circle cx="280" cy="120" r="3" fill="#c8a06a" />
+    <circle cx="200" cy="250" r="3.5" fill="#c76b9a" />
+  </svg>
+
+  <div class="brand">
+    <span class="brand-icon">✦</span>
+    <div class="brand-name">Nova</div>
+    <div class="brand-tagline">Star Atlas for AI Agents</div>
+    <div class="accent-line"></div>
+    <div class="brand-sub">github.com/DerekLopezGarcia/nova</div>
+  </div>
+
+  <!-- Star Cards -->
+  <div class="stars-grid">
+    <div class="star-card">
+      <span class="star-icon">🔵</span>
+      <div class="star-name">Alpha Centauri</div>
+      <div class="star-class">Class G · Yellow Dwarf</div>
+      <span class="bar-label">✦ Magnitude</span>
+      <div class="bar"><div class="bar-fill blue"></div></div>
+      <span class="bar-label">♨ Heat</span>
+      <div class="bar"><div class="bar-fill gold" style="width:65%"></div></div>
+    </div>
+    <div class="star-card" style="border-color: rgba(200,160,106,0.6);">
+      <span class="star-icon">⭐</span>
+      <div class="star-name">Betelgeuse</div>
+      <div class="star-class">Class M · Red Supergiant</div>
+      <span class="bar-label">✦ Magnitude</span>
+      <div class="bar"><div class="bar-fill purple"></div></div>
+      <span class="bar-label">♨ Heat</span>
+      <div class="bar"><div class="bar-fill gold" style="width:45%"></div></div>
+    </div>
+    <div class="star-card">
+      <span class="star-icon">⚪</span>
+      <div class="star-name">Sirius</div>
+      <div class="star-class">Class A · White Bright</div>
+      <span class="bar-label">✦ Magnitude</span>
+      <div class="bar"><div class="bar-fill white"></div></div>
+      <span class="bar-label">♨ Heat</span>
+      <div class="bar"><div class="bar-fill blue" style="width:75%"></div></div>
+    </div>
+  </div>
+</body>
+</html>

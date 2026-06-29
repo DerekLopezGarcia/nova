@@ -7,35 +7,30 @@ interface StarCardProps {
 }
 
 const SPECTRAL_CLASSES: Record<string, { label: string; color: string; icon: string }> = {
-  O: { label: 'Blue Giant', color: '#4a7bb5', icon: '🔵' },
-  B: { label: 'Blue-White', color: '#87ceeb', icon: '🔷' },
-  A: { label: 'White', color: '#f5e6c8', icon: '⚪' },
-  F: { label: 'Yellow-White', color: '#f0d888', icon: '⭐' },
-  G: { label: 'Yellow Dwarf', color: '#e8c878', icon: '🌞' },
-  K: { label: 'Orange Dwarf', color: '#d4a06a', icon: '🟠' },
-  M: { label: 'Red Dwarf', color: '#cc5555', icon: '🔴' },
+  O: { label: 'Gigante Azul', color: '#4a7bb5', icon: '🔵' },
+  B: { label: 'Azul-Blanca', color: '#6a9bcc', icon: '🔷' },
+  A: { label: 'Blanca Brillante', color: '#f5e6c8', icon: '⚪' },
+  F: { label: 'Amarilla-Blanca', color: '#f0d888', icon: '⭐' },
+  G: { label: 'Enana Amarilla', color: '#e8c878', icon: '🌞' },
+  K: { label: 'Enana Naranja', color: '#d4a06a', icon: '🟠' },
+  M: { label: 'Enana Roja', color: '#cc5555', icon: '🔴' },
 };
 
-function getStarIcon(spectralClass: string): string {
-  return SPECTRAL_CLASSES[spectralClass]?.icon ?? '✦';
+function getStarInfo(spectralClass: string) {
+  return SPECTRAL_CLASSES[spectralClass] ?? { label: 'Desconocida', color: '#c8a06a', icon: '✦' };
 }
 
-function getStarColor(spectralClass: string): string {
-  return SPECTRAL_CLASSES[spectralClass]?.color ?? '#c8a06a';
-}
-
-const STATUS_LABELS: Record<string, string> = {
-  dormant: '● Dormant',
-  burning: '● Burning',
-  supernova: '● Supernova',
-  pulsar: '● Pulsar',
-  giant: '● Giant',
+const STATUS_STYLES: Record<string, { label: string; color: string }> = {
+  dormant: { label: '● Latente', color: '#4a7bb5' },
+  burning: { label: '● Activa', color: '#e8c878' },
+  supernova: { label: '● Supernova', color: '#c76b9a' },
+  pulsar: { label: '● Púlsar', color: '#87ceeb' },
+  giant: { label: '● Gigante', color: '#d4a06a' },
 };
 
 export function StarCard({ star, onClick }: StarCardProps) {
-  const starColor = getStarColor(star.spectralClass);
-  const starIcon = getStarIcon(star.spectralClass);
-  const spec = SPECTRAL_CLASSES[star.spectralClass];
+  const info = getStarInfo(star.spectralClass);
+  const statusStyle = STATUS_STYLES[star.status] ?? { label: star.status, color: '#aaa' };
 
   return (
     <div
@@ -48,21 +43,27 @@ export function StarCard({ star, onClick }: StarCardProps) {
       <div
         className="star-card__icon"
         style={{
-          color: starColor,
-          textShadow: `0 0 15px ${starColor}`,
-          filter: `drop-shadow(0 0 8px ${starColor})`,
+          color: info.color,
+          textShadow: `0 0 20px ${info.color}80, 0 0 40px ${info.color}40`,
+          filter: `drop-shadow(0 0 12px ${info.color}60)`,
         }}
       >
-        {starIcon}
-      </div>
-      <div className="star-card__name">{star.name}</div>
-      <div className="star-card__constellation">
-        Class {star.spectralClass} · {spec?.label ?? 'Star'}
+        {info.icon}
       </div>
 
-      <div className="star-card__status">
+      <div className="star-card__name">{star.name}</div>
+
+      <div className="star-card__constellation">
+        Clase {star.spectralClass} · {info.label}
+      </div>
+
+      <div className="star-card__status-badge" style={{ color: statusStyle.color }}>
+        {statusStyle.label}
+      </div>
+
+      <div className="star-card__stats">
         <div>
-          <span className="cosmic-label">✦ Magnitude</span>
+          <span className="cosmic-label">✦ Magnitud</span>
           <StellarBar
             value={star.magnitude}
             variant="magnitude"
@@ -70,7 +71,7 @@ export function StarCard({ star, onClick }: StarCardProps) {
           />
         </div>
         <div>
-          <span className="cosmic-label">♨ Heat</span>
+          <span className="cosmic-label">♨ Calor</span>
           <StellarBar
             value={star.heat}
             variant="heat"
@@ -79,16 +80,8 @@ export function StarCard({ star, onClick }: StarCardProps) {
         </div>
       </div>
 
-      <div className="mt-sm" style={{
-        fontSize: '9px',
-        color: 'var(--text-secondary)',
-        fontFamily: 'var(--font-body)',
-        textAlign: 'center',
-        marginTop: '12px',
-        letterSpacing: '1px',
-        textTransform: 'uppercase',
-      }}>
-        {STATUS_LABELS[star.status] ?? star.status}
+      <div className="star-card__footer">
+        <span className="cosmic-label">{star.alignmentsCompleted} alineaciones</span>
       </div>
     </div>
   );

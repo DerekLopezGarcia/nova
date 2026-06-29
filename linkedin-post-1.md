@@ -1,36 +1,48 @@
-# LinkedIn Post 1 — "The Vision"
+# LinkedIn Post 1 — Nova
 
 ---
 
-What if managing AI agents felt like tending a cozy farm? 🌾
+## IMAGEN
 
-Not another gray dashboard.
-Not another drag-and-drop DAG.
-Not another side panel with 47 dropdowns.
+Abre en el navegador y captura la pantalla (1200x630px):
+```
+https://dereklopezgarcia.github.io/nova/og-image.html
+```
+O el archivo local: `public/og-image.html`
 
-I'm building Prompt Meadow — a Stardew Valley-styled interface where your AI agents are little pixel-art creatures living in a meadow.
+---
 
-Here's the idea:
+## TITULO
 
-🌱 Plant an agent → like sowing a seed
-⚡ Watch it grow → health and energy bars
-📋 Give it tasks → like giving tools to farm animals
-🌾 Harvest results → like collecting crops at the end of the season
+Nova: un observatorio para tus agentes de inteligencia artificial
 
-The metaphor works because AI agents ARE living things in your system. They need attention, they have energy, they produce results. And right now, every interface to manage them looks like an Excel spreadsheet from 2003.
+---
 
-So I built this instead.
+## CUERPO
 
-Stack:
-→ React + Vite + TypeScript
-→ Custom pixel-art CSS (Press Start 2P font, 2px hard borders, no border-radius anywhere)
-→ Free CC0 game assets from Kenney and OpenGameArt
-→ Connects to OpenCode via MCP for the actual agent execution
+Hace unas semanas empece a preguntarme por que todas las interfaces para gestionar agentes de IA se parecen a un panel de administracion de 2005.
 
-The repo is already live with the first commit. I'll be building in public — every component, every pixel, every mistake.
+Dashboards grises. Tablas interminables. Drag-and-drop que prometen mas de lo que cumplen.
 
-If you're into AI agents, pixel art, or just tired of boring UIs — follow along. I'll post about the design decisions, the MCP integration, and how to make your own pixel-perfect interfaces.
+Asi que empece a construir Nova.
 
-🔗 github.com/DerekLopezGarcia/prompt-meadow
+Nova es un observatorio celestial para tus agentes de IA. Cada agente es una estrella con su propia clase espectral, magnitud y calor estelar. Las tareas son alineaciones cosmicas. Los resultados, supernovas.
 
-#PromptMeadow #AI #PixelArt #OpenSource #StardewValley #OpenCode
+La interfaz es un cielo nocturno con estrellas titilantes, paneles de cristal y detalles en dorado. Nada de bordes redondeados. Nada de sombras difusas. Todo con intencion.
+
+La clasificacion espectral (O, B, A, F, G, K, M) no es casual: las estrellas tipo O son gigantes azules masivas (agentes complejos), las tipo M son enanas rojas (tareas ligeras). Se mapea solo.
+
+Tecnologicamente:
+- React + Vite + TypeScript
+- CSS personalizado con tematica espacial
+- Press Start 2P y Space Mono como tipografias
+- Conexion a OpenCode mediante protocolo MCP
+
+El repositorio ya esta en GitHub. Codigo abierto, licencia MIT.
+
+Si te gusta la astronomia, la inteligencia artificial o simplemente las interfaces que no parecen de empresa, te invito a echarle un ojo.
+
+https://github.com/DerekLopezGarcia/nova
+https://dereklopezgarcia.github.io/nova/
+
+#Nova #IA #DesarrolloWeb #OpenSource #React #TypeScript

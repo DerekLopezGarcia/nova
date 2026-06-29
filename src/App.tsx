@@ -23,7 +23,7 @@ export default function App() {
         status: 'dormant',
         magnitude: 100,
         heat: 100,
-        lastAlignment: 'Just born! 💫',
+        lastAlignment: 'Acabo de nacer',
         discoveredAt: new Date().toISOString(),
         description,
         alignmentsCompleted: 0,
@@ -40,6 +40,17 @@ export default function App() {
 
   return (
     <div className="app" style={{ position: 'relative', zIndex: 1 }}>
+      {/* Constellation background lines */}
+      <svg className="constellation-bg" viewBox="0 0 1200 800" preserveAspectRatio="none">
+        <line className="constellation-line" x1="15%" y1="30%" x2="35%" y2="50%" />
+        <line className="constellation-line" x1="35%" y1="50%" x2="55%" y2="35%" />
+        <line className="constellation-line" x1="55%" y1="35%" x2="75%" y2="55%" />
+        <line className="constellation-line" x1="75%" y1="55%" x2="85%" y2="40%" />
+        <line className="constellation-line" x1="25%" y1="65%" x2="45%" y2="50%" />
+        <line className="constellation-line" x1="45%" y1="50%" x2="65%" y2="70%" />
+        <line className="constellation-line" x1="65%" y1="70%" x2="85%" y2="55%" />
+      </svg>
+
       <NovaHeader
         starCount={stars.length}
         alignmentsCompleted={totalAlignments}
@@ -49,36 +60,17 @@ export default function App() {
       <main className="app__main">
         {stars.length === 0 ? (
           <div className="empty-cosmos">
-            <div className="empty-cosmos__icon animate-float">🌌</div>
+            <div className="empty-cosmos__icon">🌌</div>
             <p className="empty-cosmos__text">
-              The cosmos is empty.<br />
-              Discover your first star to begin.
+              El cosmos está vacío.<br />
+              Descubre tu primera estrella para empezar.
             </p>
             <p className="empty-cosmos__hint">
-              Click "Discover Star" to light up the sky 💫
+              Haz clic en "Descubrir estrella" para iluminar el cielo ✦
             </p>
           </div>
         ) : (
-          <>
-            <div className="flex justify-between items-center mb-md">
-              <h2 style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '11px',
-                color: 'var(--text-gold)',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-              }}>
-                ✦ Your Constellation
-              </h2>
-              <span style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: '11px',
-                color: 'var(--text-secondary)',
-              }}>
-                {stars.length} star{stars.length !== 1 ? 's' : ''} · {totalAlignments} alignments
-              </span>
-            </div>
-
+          <div className="nova-grid-wrapper">
             <div className="nova-grid">
               {stars.map((star) => (
                 <StarCard
@@ -88,34 +80,38 @@ export default function App() {
                 />
               ))}
             </div>
-          </>
+          </div>
         )}
 
         {selectedStar && (
-          <CosmicPanel
-            variant="gold"
-            className="mt-lg animate-slide-up"
-            title={`✦ ${selectedStar.name}`}
-          >
-            <div style={{ fontSize: '12px', lineHeight: '2', color: 'var(--text-primary)' }}>
-              <p><strong>Spectral Class:</strong> {selectedStar.spectralClass}</p>
-              <p><strong>Status:</strong> {selectedStar.status}</p>
-              <p><strong>Alignments completed:</strong> {selectedStar.alignmentsCompleted}</p>
-              <p><strong>Last alignment:</strong> {selectedStar.lastAlignment}</p>
-              <p><strong>Discovered:</strong> {new Date(selectedStar.discoveredAt).toLocaleDateString()}</p>
-              {selectedStar.description && (
-                <p><strong>Description:</strong> {selectedStar.description}</p>
-              )}
-            </div>
-            <div className="mt-md text-center">
-              <button
-                className="cosmic-btn cosmic-btn--sm"
-                onClick={() => setSelectedStar(null)}
-              >
-                ✦ Close
-              </button>
-            </div>
-          </CosmicPanel>
+          <div className="star-detail-overlay">
+            <CosmicPanel
+              variant="gold"
+              className="animate-slide-up"
+              title={`✦ ${selectedStar.name}`}
+            >
+              <div style={{ fontSize: '12px', lineHeight: '2.2', color: 'var(--text-primary)' }}>
+                <p>        <strong>Clase espectral:</strong> {selectedStar.spectralClass}</p>
+                <p>        <strong>Estado:</strong> {selectedStar.status}</p>
+                <p>        <strong>Alineaciones:</strong> {selectedStar.alignmentsCompleted}</p>
+                <p>        <strong>Ultima alineacion:</strong> {selectedStar.lastAlignment}</p>
+                <p>        <strong>Descubierta:</strong> {new Date(selectedStar.discoveredAt).toLocaleDateString()}</p>
+                {selectedStar.description && (
+                  <p style={{ marginTop: '8px', fontStyle: 'italic', color: 'var(--text-secondary)' }}>
+                    "{selectedStar.description}"
+                  </p>
+                )}
+              </div>
+              <div className="mt-md text-center">
+                <button
+                  className="cosmic-btn"
+                  onClick={() => setSelectedStar(null)}
+                >
+                  Cerrar
+                </button>
+              </div>
+            </CosmicPanel>
+          </div>
         )}
       </main>
 
