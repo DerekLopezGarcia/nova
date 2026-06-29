@@ -94,7 +94,7 @@ export default function App() {
                 <p>        <strong>Clase espectral:</strong> {selectedStar.spectralClass}</p>
                 <p>        <strong>Estado:</strong> {selectedStar.status}</p>
                 <p>        <strong>Alineaciones:</strong> {selectedStar.alignmentsCompleted}</p>
-                <p>        <strong>Ultima alineacion:</strong> {selectedStar.lastAlignment}</p>
+                <p>        <strong>Última alineación:</strong> {selectedStar.lastAlignment}</p>
                 <p>        <strong>Descubierta:</strong> {new Date(selectedStar.discoveredAt).toLocaleDateString()}</p>
                 {selectedStar.description && (
                   <p style={{ marginTop: '8px', fontStyle: 'italic', color: 'var(--text-secondary)' }}>
