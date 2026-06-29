@@ -3,7 +3,8 @@
 > **A celestial observatory for your AI agents.**  
 > Discover stars, form constellations, manage your AI cosmos.
 
-![Nova screenshot](https://raw.githubusercontent.com/DerekLopezGarcia/nova/main/public/og-image.png)
+<img width="1876" height="957" alt="image" src="https://github.com/user-attachments/assets/0396c2c0-f3bc-4c20-bce0-612473dc5048" />
+
 
 ## ✨ Concept
 
