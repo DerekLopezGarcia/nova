@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/prompt-meadow/',
+  base: '/nova/',
   build: {
     outDir: 'dist',
     assetsInlineLimit: 0,

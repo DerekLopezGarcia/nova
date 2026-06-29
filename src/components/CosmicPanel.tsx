@@ -1,21 +1,21 @@
 import type { ReactNode } from 'react';
 
-interface PixelPanelProps {
-  variant?: 'default' | 'dark' | 'gold' | 'inset';
+interface CosmicPanelProps {
+  variant?: 'default' | 'gold' | 'glass';
   children: ReactNode;
   className?: string;
   title?: string;
 }
 
-export function PixelPanel({
+export function CosmicPanel({
   variant = 'default',
   children,
   className = '',
   title,
-}: PixelPanelProps) {
+}: CosmicPanelProps) {
   const classes = [
-    'pixel-panel',
-    variant !== 'default' && `pixel-panel--${variant}`,
+    'cosmic-panel',
+    variant !== 'default' && `cosmic-panel--${variant}`,
     className,
   ]
     .filter(Boolean)
@@ -23,7 +23,7 @@ export function PixelPanel({
 
   return (
     <div className={classes}>
-      {title && <h2 className="pixel-dialog__title">{title}</h2>}
+      {title && <h2 className="cosmic-dialog__title">{title}</h2>}
       {children}
     </div>
   );

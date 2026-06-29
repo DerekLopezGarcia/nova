@@ -1,22 +1,22 @@
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
 
-interface PixelButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'gold' | 'green' | 'danger';
+interface CosmicButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'default' | 'gold' | 'primary';
   size?: 'sm' | 'md';
   children: ReactNode;
 }
 
-export function PixelButton({
+export function CosmicButton({
   variant = 'default',
   size = 'md',
   children,
   className = '',
   ...props
-}: PixelButtonProps) {
+}: CosmicButtonProps) {
   const classes = [
-    'pixel-btn',
-    variant !== 'default' && `pixel-btn--${variant}`,
-    size === 'sm' && 'pixel-btn--sm',
+    'cosmic-btn',
+    variant !== 'default' && `cosmic-btn--${variant}`,
+    size === 'sm' && 'cosmic-btn--sm',
     className,
   ]
     .filter(Boolean)

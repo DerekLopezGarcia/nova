@@ -1,22 +1,21 @@
-# 🌿 Prompt Meadow
+# ✦ Nova
 
-> **A cozy pixel-art interface to manage your AI agents.**  
-> Stardew Valley meets OpenCode. Free. Open source. Pixel-perfect.
+> **A celestial observatory for your AI agents.**  
+> Discover stars, form constellations, manage your AI cosmos.
 
-![Prompt Meadow screenshot](https://raw.githubusercontent.com/DerekLopezGarcia/prompt-meadow/main/public/og-image.png)
+![Nova screenshot](https://raw.githubusercontent.com/DerekLopezGarcia/nova/main/public/og-image.png)
 
 ## ✨ Concept
 
-**Prompt Meadow** is a dashboard where your AI agents are like crops or farm animals in a cozy pixel-art meadow. Each agent is a little creature you plant, nurture, and harvest results from.
+**Nova** is a cosmic-themed dashboard where your AI agents are **stars in the night sky**. Each agent is a star with its own spectral class, magnitude, and heat. Form constellations of agents working together. Watch them go supernova with results.
 
-| Stardew Valley → | Prompt Meadow |
+| Traditional → | Nova |
 |---|---|
-| 🌱 Crops / Animals | 🤖 AI Agents |
-| ❤️ Health bar | 📊 Agent status |
-| 🧰 Inventory | 📋 Task queue |
-| 🌰 Seed → Harvest | 📝 Task → Result |
-| 💬 NPC dialogs | 📜 Agent logs |
-| 🟫 Farm plot | 🟩 Agent grid |
+| 🤖 Agent | ⭐ Star |
+| 📊 Status | ✦ Magnitude / Heat |
+| 📋 Task | ⟡ Cosmic alignment |
+| ✅ Result | 💥 Supernova |
+| 📜 Logs | 🌌 Constellations |
 
 ## 🚀 Quick Start
 
@@ -25,35 +24,33 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173/prompt-meadow/](http://localhost:5173/prompt-meadow/)
+Open [http://localhost:5173/nova/](http://localhost:5173/nova/)
 
 ## 🛠️ Stack
 
 - **Frontend:** React 19 + TypeScript + Vite
-- **Style:** Custom CSS pixel-art (Press Start 2P font)
-- **Assets:** Free CC0 game assets from [Kenney](https://kenney.nl) & [OpenGameArt](https://opengameart.org)
-- **AI Backend:** Connects to [OpenCode](https://opencode.ai) via MCP protocol
+- **Style:** Custom cosmic CSS theme (Press Start 2P + Space Mono)
 - **Deploy:** GitHub Pages (free)
 
 ## 🎨 Design
 
-Inspired by **Stardew Valley**'s cozy pixel art aesthetic:
+Inspired by celestial observatories and stellar atlases:
 
-- `Press Start 2P` pixel font
-- 2px hard borders, no border-radius
-- 3px drop shadows without blur
-- `image-rendering: pixelated` everywhere
-- Stardew Valley color palette (Lospec)
+- Dark navy night sky with twinkling stars
+- Gold brass accents on UI elements
+- Spectral star classification (O-B-A-F-G-K-M)
+- Glassmorphism panels with glow effects
+- Constellation connections between agents
 
 ## 🗺️ Roadmap
 
-- [x] Design system & component library
-- [x] Agent dashboard (grid of "farm plots")
-- [x] Agent creation ("plant a seed")
-- [ ] Status monitoring (health/energy bars)
+- [x] Cosmic design system & components
+- [x] Star dashboard with magnitude/heat bars
+- [x] Star discovery ("create agent")
+- [ ] Spectral class AI routing
+- [ ] Constellation connections (agent relationships)
 - [ ] OpenCode MCP Bridge
-- [ ] Real-time agent logs
-- [ ] Task assignment & harvesting
+- [ ] Real-time stellar events
 
 ## 📝 License
 
