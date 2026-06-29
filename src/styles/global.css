@@ -1,0 +1,109 @@
+/* ── Global App Layout ── */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__main {
+  flex: 1;
+  padding: var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Empty State ── */
+.empty-meadow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  text-align: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.empty-meadow__icon {
+  font-size: 48px;
+  image-rendering: pixelated;
+}
+
+.empty-meadow__text {
+  font-size: 10px;
+  color: var(--text-primary);
+  line-height: 2;
+}
+
+.empty-meadow__hint {
+  font-size: 8px;
+  color: var(--sv-brown-light);
+}
+
+/* ── Loading ── */
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+}
+
+.loading-spinner__pixel {
+  width: 8px;
+  height: 8px;
+  background-color: var(--sv-gold);
+  margin: 0 2px;
+  animation: loading-bounce 0.6s step-end infinite;
+}
+
+.loading-spinner__pixel:nth-child(2) { animation-delay: 0.2s; }
+.loading-spinner__pixel:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes loading-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ── Toast Notification ── */
+.pixel-toast {
+  position: fixed;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  background-color: var(--sv-brown-dark);
+  color: var(--sv-white);
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--sv-gold);
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  z-index: 1000;
+  box-shadow: var(--shadow-pixel);
+  animation: toast-in 0.3s ease-out;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ── Utility ── */
+.text-center { text-align: center; }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }

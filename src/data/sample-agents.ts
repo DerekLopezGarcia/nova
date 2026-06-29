@@ -1,0 +1,48 @@
+import type { Agent } from '../types/agent';
+
+export const SAMPLE_AGENTS: Agent[] = [
+  {
+    id: 'agent-1',
+    name: 'CropWatcher',
+    status: 'working',
+    health: 90,
+    energy: 65,
+    lastTask: 'Analyzing soil data...',
+    createdAt: '2026-06-28T10:00:00Z',
+    model: 'opencode-go/deepseek-v4-flash',
+    tasksCompleted: 12,
+  },
+  {
+    id: 'agent-2',
+    name: 'HarvestBot',
+    status: 'idle',
+    health: 100,
+    energy: 85,
+    lastTask: 'Awaiting instructions',
+    createdAt: '2026-06-28T11:00:00Z',
+    model: 'opencode-go/sonnet',
+    tasksCompleted: 8,
+  },
+  {
+    id: 'agent-3',
+    name: 'SeedPlanner',
+    status: 'harvesting',
+    health: 75,
+    energy: 45,
+    lastTask: 'Compiling report...',
+    createdAt: '2026-06-28T12:00:00Z',
+    model: 'opencode-go/deepseek-v4-flash',
+    tasksCompleted: 5,
+  },
+  {
+    id: 'agent-4',
+    name: 'WeatherWise',
+    status: 'resting',
+    health: 60,
+    energy: 30,
+    lastTask: 'Forecast complete. Resting...',
+    createdAt: '2026-06-29T08:00:00Z',
+    model: 'opencode-go/general',
+    tasksCompleted: 3,
+  },
+];
